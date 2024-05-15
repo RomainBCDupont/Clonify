@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -g -Wall -Wextra -Wconversion #-O3 
-LDFLAGS = #-fsanitize=address
+LDFLAGS = -lmpg123 -lao
  
 
 SRCDIR := src
@@ -25,4 +25,4 @@ $(EXEC): $(OBJECTS)
 	-@$(CXX) -o $@ $(OBJECTS) $(LDFLAGS)
 
 clean:
-	$(RM) $(BUILDDIR)/*.o
+	-@rm $(BUILDDIR)/*.o $(EXEC)
